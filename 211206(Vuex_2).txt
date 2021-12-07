@@ -55,4 +55,52 @@ getters: {
 
 ＃mapMutations
 * Vuex에 선언한 mutations 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼
+// App.vue
+import { mapMutations } from 'vuex'
 
+methods: {
+  ...mapMutations(['clickBtn']),
+  authLogin() {},
+  displayTable() {}
+}
+
+// store.js
+mutations: {
+  clickBtn(state) {
+    alert(state.msg);
+  }
+}
+
+<button @click="clickBtn">popup message</button>
+
+＃mapActions
+* Vuex에 선언한 actions 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼
+// App.vue
+import { mapActions } from 'vuex'
+
+methods: {
+  ...mapActions(['delayClickBtn'])
+}
+
+// store.js
+actions: {
+  delayClickBtn(context) {
+    setTimeout(() => context.commit('clickBtn'), 2000);
+  }
+}
+
+<button @click="delayClickBtn">delay popup message</button>
+
+＃헬퍼의 유연한 문법
+* Vuex에 선언한 속성을 그대로 컴포넌트에 연결하는 문법
+// 배열 리터럴
+...mapMutations([
+  'clickBtn', // 'clickBtn': clickBtn
+  'addNumber' // addNumber(인자)
+])
+
+* Vuex에 선언한 속성을 컴포넌트의 특정 메소드에 연결하는 문법
+// 객체 리터럴
+...mapMutations({
+  popupMsg: 'clickBtn' // 컴포넌트 메소드 명 : Store의 뮤테이션 명
+})
