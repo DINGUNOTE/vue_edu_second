@@ -8,5 +8,7 @@
 - ES6를 이용한 효율적이고 간결한 뷰 코딩 방법<br><br>
 - Vuex를 이용한 상태 관리의 이해 및 적용 방법
 
+## 강의 학습을 통한 프로젝트 : https://github.com/DINGUNOTE/vue_todo
+
 
 <br><br>출처 : 인프런 캡틴판교님 VueJS 중급 강의 https://www.inflearn.com/course/vue-pwa-vue-js-중급/
